@@ -2,7 +2,7 @@ lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
   .settings(
     name := "POC",
-    version := "1.0-SNAPSHOT",
+    version := "1.0",
     scalaVersion := "2.13.8",
     libraryDependencies ++= Seq(
       guice,
@@ -15,3 +15,9 @@ lazy val root = (project in file("."))
       "-Xfatal-warnings"
     )
   )
+  .dependsOn(library)
+
+lazy val library = project.dependsOn(dataObjects)
+
+lazy val dataObjects = project
+  .settings()

@@ -1,0 +1,3 @@
+GET        /isAlive        controllers.IsAliveController.isAlive
+
+GET        /spawn          controllers.SpawnController.spawn
