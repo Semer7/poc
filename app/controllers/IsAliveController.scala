@@ -1,6 +1,11 @@
 package controllers
 
-import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents}
+import play.api.mvc.{
+  AbstractController,
+  Action,
+  AnyContent,
+  ControllerComponents
+}
 
 import javax.inject.{Inject, Singleton}
 
