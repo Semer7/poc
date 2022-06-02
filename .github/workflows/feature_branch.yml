@@ -16,7 +16,8 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '11'
-          distribution: 'temurin'
+          distribution: 'corretto'
+          cache: 'sbt'
       - name: Validate code formatting
         run: sbt scalafmtCheckAll
       - name: Clean
