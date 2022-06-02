@@ -1,9 +1,11 @@
+import CommonSettings.{generalSettings, githubMavenPackage}
+
 lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
   .settings(
+    generalSettings,
     name := "POC",
     version := "1.0",
-    scalaVersion := "2.13.8",
     libraryDependencies ++= Seq(
       guice,
       "com.h2database" % "h2" % "1.4.199"
@@ -12,11 +14,16 @@ lazy val root = (project in file("."))
       "-feature",
       "-deprecation",
       "-Xfatal-warnings"
-    )
+    ),
+    credentials += CommonSettings.credentials
   )
   .dependsOn(library)
 
 lazy val library = project.dependsOn(dataObjects)
+  .settings(generalSettings)
 
 lazy val dataObjects = project
-  .settings()
+  .settings(generalSettings,
+    publishTo := Some(githubMavenPackage),
+    credentials += CommonSettings.credentials
+  )
