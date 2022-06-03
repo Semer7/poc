@@ -37,4 +37,4 @@ enablePlugins(AshScriptPlugin)
 dockerChmodType := UserGroupWriteExecute
 dockerPermissionStrategy := CopyChown
 dockerBaseImage := "amazoncorretto:11-alpine"
-dockerRepository := Some("https://docker.pkg.github.com/semer7/poc")
+dockerRepository := Some("docker.pkg.github.com/semer7/poc")
