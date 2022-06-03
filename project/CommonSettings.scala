@@ -1,4 +1,4 @@
-import sbt.Keys.{externalResolvers, organization, publishTo, scalaVersion}
+import sbt.Keys.{externalResolvers, organization, scalaVersion}
 import sbt._
 
 object CommonSettings {

@@ -1,4 +1,6 @@
 import CommonSettings.{generalSettings, githubMavenPackage}
+import com.typesafe.sbt.packager.docker.DockerChmodType.UserGroupWriteExecute
+import com.typesafe.sbt.packager.docker.DockerPermissionStrategy.CopyChown
 
 lazy val root = (project in file("."))
   .enablePlugins(PlayScala)
@@ -27,3 +29,8 @@ lazy val dataObjects = project
     publishTo := Some(githubMavenPackage),
     credentials += CommonSettings.credentials
   )
+
+enablePlugins(DockerPlugin)
+
+dockerChmodType := UserGroupWriteExecute
+dockerPermissionStrategy := CopyChown
