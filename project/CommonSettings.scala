@@ -3,7 +3,7 @@ import sbt._
 
 object CommonSettings {
 
-  val credentials = Credentials (
+  val mavenCredentials = Credentials (
     "GitHub Package Registry",
     "maven.pkg.github.com",
     "Semer7",

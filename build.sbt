@@ -16,18 +16,19 @@ lazy val root = (project in file("."))
       "-feature",
       "-deprecation",
       "-Xfatal-warnings"
-    ),
-    credentials += CommonSettings.credentials
+    )
   )
   .dependsOn(library)
 
-lazy val library = project.dependsOn(dataObjects)
+lazy val library = project
+  .dependsOn(dataObjects)
   .settings(generalSettings)
 
 lazy val dataObjects = project
-  .settings(generalSettings,
+  .settings(
+    generalSettings,
     publishTo := Some(githubMavenPackage),
-    credentials += CommonSettings.credentials
+    credentials += CommonSettings.mavenCredentials
   )
 
 enablePlugins(DockerPlugin)
@@ -36,3 +37,4 @@ enablePlugins(AshScriptPlugin)
 dockerChmodType := UserGroupWriteExecute
 dockerPermissionStrategy := CopyChown
 dockerBaseImage := "amazoncorretto:11-alpine"
+dockerRepository := Some("https://docker.pkg.github.com/semer7/poc")
