@@ -31,6 +31,8 @@ lazy val dataObjects = project
   )
 
 enablePlugins(DockerPlugin)
+enablePlugins(AshScriptPlugin)
 
 dockerChmodType := UserGroupWriteExecute
 dockerPermissionStrategy := CopyChown
+dockerBaseImage := "amazoncorretto:11-alpine"
